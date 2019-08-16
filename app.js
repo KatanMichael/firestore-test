@@ -39,13 +39,35 @@ app.get('/addRandomUser', async (request, response) =>
 
   var firstName = Math.random()*100;
   var age = Math.random()*100;
-  return db.collection('users').add(
+  db.collection('users').add(
     {
       "FirstName" : firstName,
       "Age" : age
     }
   );
 
+});
+
+app.post('/fights', async (request, response) => {
+  try {
+    const data = 
+    {
+      "name": "Test",
+      "age" : "Age"
+    } 
+    const fightRef = await db.collection('fights').add(data);
+    const fight = await fightRef.get();
+
+    response.json({
+      id: fightRef.id,
+      data: fight.data()
+    });
+
+  } catch(error){
+
+    response.status(500).send(error);
+
+  }
 });
 
 
