@@ -3,11 +3,16 @@
 
 function addUserToDB(inputName,inputAge)
 {
-    var url = "https://michael-firestorer-test.herokuapp.com/addRandomUser"
+    var url = "/addRandomUser"
 
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open( "GET", url, true ); // false for synchronous request
+    xmlHttp.setRequestHeader("name",inputName);
+    xmlHttp.setRequestHeader("age",inputAge);
     xmlHttp.send( null );
     return xmlHttp.responseText;
 
 }
+
+
+

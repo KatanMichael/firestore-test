@@ -7,8 +7,9 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-const fireBase = require('firebase')
-const admin = require('firebase-admin')
+const fireBase = require('firebase');
+const admin = require('firebase-admin');
+
 
 var app = express();
 
@@ -23,46 +24,41 @@ const firebaseConfig = {
   appId: "1:313303252760:web:9a99f4022b7d16e7"
 };
 
-admin.initializeApp(firebaseConfig)
+admin.initializeApp(firebaseConfig);
+
+admin.credential = "SimpleLogin-eaceb8a8da9b.json";
 
 let db = admin.firestore();
 
 
 app.get('/addUser', (request, response) =>
 {
-
-});
-
-app.get('/addRandomUser', async (request, response) =>
-{
-  console.log("In Ramdom User Add")
-
   var firstName = Math.random()*100;
   var age = Math.random()*100;
-try {
-  
   var data = {
 
     "FirstName" : firstName,
     "Age" : age
   }
+  response.status(200).send(data)
+});
 
+app.get('/addRandomUser', async (request, response) =>
+{
+  console.log("In Ramdom User Add")
+  
+  var firstName = Math.random()*100;
+  var age = Math.random()*100;
+  var data = {
 
+    "FirstName" : firstName,
+    "Age" : age
+  }
+    db.collection('Users').add(data).then(ref =>
+      {
+        response.send(ref)
 
-  const userRef = await db.collection('users').add(data);
-  const  userRes = await  userRef.get();
-
-  response.send({
-    "id": userRef.id,
-    "data": userRes.data()
-
-  });
-
-} catch (error) {
-  response.status(500).send(error);
-}
- 
-
+      })
 });
 
 
@@ -97,3 +93,8 @@ app.use(function(err, req, res, next) {
 
 module.exports = app;
 
+var port = 5000;
+
+process.env.GOOGLE_APPLICATION_CREDENTIALS = "key.json"
+
+app.listen(port, () => console.log(`Example app listening on port ${port}!`))
