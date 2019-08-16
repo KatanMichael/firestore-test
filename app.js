@@ -50,7 +50,7 @@ try {
 
 
   const userRef = await db.collection('users').add(data);
-  const  userRes = userRef.get();
+  const  userRes = await  userRef.get();
 
   response.send({
     "id": userRef.id,
