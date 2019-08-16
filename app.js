@@ -33,22 +33,22 @@ app.get('/addUser', (request, response) =>
 
 });
 
-app.get('/addRandomUser', async (request, response) =>
-{
-  console.log("In Ramdom User Add")
+// app.get('/addRandomUser', async (request, response) =>
+// {
+//   console.log("In Ramdom User Add")
 
-  var firstName = Math.random()*100;
-  var age = Math.random()*100;
-  db.collection('users').add(
-    {
-      "FirstName" : firstName,
-      "Age" : age
-    }
-  );
+//   var firstName = Math.random()*100;
+//   var age = Math.random()*100;
+//   db.collection('users').add(
+//     {
+//       "FirstName" : firstName,
+//       "Age" : age
+//     }
+//   );
 
-});
+// });
 
-app.post('/fights', async (request, response) => {
+app.post('/addRandomUser', async (request, response) => {
   try {
     const data = 
     {
