@@ -54,7 +54,7 @@ try {
 
   response.send({
     "id": userRef.id,
-    "data": userRef.data()
+    "data": userRes.data()
 
   });
 
