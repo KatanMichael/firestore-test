@@ -33,7 +33,7 @@ app.get('/addUser', (request, response) =>
 
 });
 
-app.get('/addRandomUser', (request, response) =>
+app.get('/addRandomUser', async (request, response) =>
 {
   console.log("In Ramdom User Add")
 

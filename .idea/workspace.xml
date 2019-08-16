@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="873e4031-5faf-47cc-b965-4b46506a87d1" name="Default Changelist" comment="added new function">
-      <change beforePath="$PROJECT_DIR$/public/javascripts/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/index.js" afterDir="false" />
-    </list>
+    <list default="true" id="873e4031-5faf-47cc-b965-4b46506a87d1" name="Default Changelist" comment="added new function" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +52,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565930100146</updated>
-      <workItem from="1565930103311" duration="4768000" />
+      <workItem from="1565930103311" duration="5512000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1565931029521</created>
