@@ -2,21 +2,21 @@
 <html>
 
 <head>
-    <script src="/public/javascripts/index.js"></script>
+    <script src="../public/javascripts/index.js"></script>
 
 
 </head>
 
 <body>
     <h1>Welcome To My Site!</h1>
-    <input id ="inputName">
+    <input id ="inputName",type="text">
     <br>
-    <input id = "inputAge">
+    <input id = "inputAge",type="text">
     <button onclick="htmlInputUser()">Add User To DB</button>
 
     <script>
-        var name = document.getElementById("inputName").text
-        var age = document.getElementById("inputAge").value
+        var name = document.getElementById("inputName").textContent
+        var age = document.getElementById("inputAge").textContent
         
         function htmlInputUser()
         {
