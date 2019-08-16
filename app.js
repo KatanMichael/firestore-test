@@ -49,7 +49,7 @@ try {
 
 
 
-  const userRef = db.collection('users').add(data);
+  const userRef = await db.collection('users').add(data);
   const  userRes = userRef.get();
 
   response.send({
