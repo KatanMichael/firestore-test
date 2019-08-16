@@ -33,41 +33,36 @@ app.get('/addUser', (request, response) =>
 
 });
 
-// app.get('/addRandomUser', async (request, response) =>
-// {
-//   console.log("In Ramdom User Add")
+app.get('/addRandomUser', async (request, response) =>
+{
+  console.log("In Ramdom User Add")
 
-//   var firstName = Math.random()*100;
-//   var age = Math.random()*100;
-//   db.collection('users').add(
-//     {
-//       "FirstName" : firstName,
-//       "Age" : age
-//     }
-//   );
+  var firstName = Math.random()*100;
+  var age = Math.random()*100;
+try {
+  
+  var data = {
 
-// });
-
-app.post('/addRandomUser', async (request, response) => {
-  try {
-    const data = 
-    {
-      "name": "Test",
-      "age" : "Age"
-    } 
-    const fightRef = await db.collection('fights').add(data);
-    const fight = await fightRef.get();
-
-    response.json({
-      id: fightRef.id,
-      data: fight.data()
-    });
-
-  } catch(error){
-
-    response.status(500).send(error);
-
+    "FirstName" : firstName,
+    "Age" : age
   }
+
+
+
+  const userRef = db.collection('users').add(data);
+  const  userRes = userRef.get();
+
+  response.send({
+    "id": userRef.id,
+    "data": userRef.data()
+
+  });
+
+} catch (error) {
+  response.status(500).send(error);
+}
+ 
+
 });
 
 
