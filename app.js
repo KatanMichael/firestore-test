@@ -31,7 +31,7 @@ let db = admin.firestore();
 app.get('/addUser', (request, response) =>
 {
 
-})
+});
 
 app.get('/addRandomUser', (request, response) =>
 {

@@ -7,16 +7,5 @@ router.get('/', function(req, res, next) {
 });
 
 
-app.get('/addRandomUser', (request, response) =>
-{
-  var firstName = Math.random()*100;
-  var age = Math.random()*100;
-  return db.collection('users').add(
-    {
-      "FirstName" : firstName,
-      "Age" : age
-    }
-  );
-});
 
 module.exports = router;
