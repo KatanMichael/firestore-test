@@ -35,14 +35,18 @@ app.get('/addUser', (request, response) =>
 
 app.get('/addRandomUser', (request, response) =>
 {
+  console.log("In Ramdom User Add")
+
   var firstName = Math.random()*100;
   var age = Math.random()*100;
-  return db.collection('users').add(
+  db.collection('users').add(
     {
       "FirstName" : firstName,
       "Age" : age
     }
   );
+
+  response.send("Its All Good!");
 });
 
 
