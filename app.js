@@ -7,7 +7,43 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+const fireBase = require('firebase')
+const admin = require('firebase-admin')
+
 var app = express();
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAYvesXqSkdxBDNZ773rZVbiHlbO4SBHt4",
+  authDomain: "simplelogin-6167c.firebaseapp.com",
+  databaseURL: "https://simplelogin-6167c.firebaseio.com",
+  projectId: "simplelogin-6167c",
+  storageBucket: "simplelogin-6167c.appspot.com",
+  messagingSenderId: "313303252760",
+  appId: "1:313303252760:web:9a99f4022b7d16e7"
+};
+
+admin.initializeApp(firebaseConfig)
+
+let db = admin.firestore();
+
+
+app.get('/addUser', (request, response) =>
+{
+
+})
+
+app.get('/addRandomUser', (request, response) =>
+{
+  var firstName = Math.random()*100;
+  var age = Math.random()*100;
+  return db.collection('users').add(
+    {
+      "FirstName" : firstName,
+      "Age" : age
+    }
+  );
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -39,3 +75,4 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
