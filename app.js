@@ -39,7 +39,7 @@ app.get('/addRandomUser', async (request, response) =>
 
   var firstName = Math.random()*100;
   var age = Math.random()*100;
-  return redb.collection('users').add(
+  return db.collection('users').add(
     {
       "FirstName" : firstName,
       "Age" : age
