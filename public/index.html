@@ -9,17 +9,23 @@
 
 <body>
     <h1>Welcome To My Site!</h1>
-    <input id ="inputName",type="text">
-    <br>
-    <input id = "inputAge",type="text">
-    <button onclick="htmlInputUser()">Add User To DB</button>
+    <form>
+        <input type = "text", id="inputName">
+        <br>
+        <input type = "text", id ="ageInput">
+        <br>
+        <input type="button", onclick="htmlInputUser()", value="Add User To DB">
+
+
+    </form>
 
     <script>
-        var name = document.getElementById("inputName").textContent
-        var age = document.getElementById("inputAge").textContent
-        
         function htmlInputUser()
         {
+            var name = document.getElementById("inputName").value;
+            var age = document.getElementById("ageInput").value;
+
+            //console.log(name + " :  " + age)
             addUserToDB(name,age);
         }
 

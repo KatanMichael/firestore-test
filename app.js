@@ -45,10 +45,10 @@ app.get('/addUser', (request, response) =>
 
 app.get('/addRandomUser', async (request, response) =>
 {
-  console.log("In Ramdom User Add")
+  //console.log(request.headers)
   
-  var firstName = Math.random()*100;
-  var age = Math.random()*100;
+  var firstName = request.get("name")
+  var age = request.get("age");
   var data = {
 
     "FirstName" : firstName,
